@@ -1,0 +1,7 @@
+from django.apps import AppConfig
+
+
+class ValuationApiConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'valuation_api'
+    verbose_name = 'Valuation API'
