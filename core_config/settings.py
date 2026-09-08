@@ -27,17 +27,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # Third party apps
+    
+    # Librerías de terceros
     'rest_framework',
-
-    # Local apps
-    'valuation_api.apps.ValuationApiConfig',
+    'drf_spectacular',
+    'corsheaders',
+    
+    # Aplicaciones locales
+    'valuation_api',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,3 +146,15 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     'COMPONENT_SPLIT_REQUEST': True,
 }
+
+#Configuración de CORS
+
+# Permite peticiones desde cualquier origen en desarrollo
+CORS_ALLOW_ALL_ORIGINS = True 
+
+# Opcional: Cuando pasamos a producción, cambiamos la línea anterior a False y usarás esto:
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173",
+#     "https://tu-dominio-frontend.com",
+# ]
